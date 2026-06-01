@@ -11,14 +11,6 @@ randomstring()
 end
 
 function
-missing(t, f, fallback)
-	if type(f) == t then
-		return f
-	end
-	return fallback
-end
-
-function
 create_gui_item(parent, reset_on_spawn)
 	local gui = Instance.new("ScreenGui")
 	gui.Parent = parent
