@@ -72,3 +72,9 @@ create_button_item(parent, txt, txt_color, bg_color, bgt, pos, size, callback)
 
 	return button
 end
+
+return {
+    create_gui_item = create_gui_item,
+    create_frame_item = create_frame_item,
+    create_button_item = create_button_item
+}
