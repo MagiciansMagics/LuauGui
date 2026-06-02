@@ -80,13 +80,25 @@ function create_toggle_button_item(parent, txt, txt_color, bg_color, bgt, pos, s
 	toggle_frame.Parent = button
 	toggle_frame.Name = randomstring()
 	toggle_frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-	toggle_frame.Position = UDim2.new(0, 4, 0, button.Size.Y.Offset - 1)
+	toggle_frame.Position = UDim2.new(0, 5, 0, button.Size.Y.Offset - 1)
 	-- Minus 4 for padding on the sides
-	toggle_frame.Size = UDim2.new(0, button.Size.X.Offset - 6, 0, 1)
+	toggle_frame.Size = UDim2.new(0, button.Size.X.Offset - 10, 0, 1)
 
 	local corner = Instance.new("UICorner")
 	corner.Parent = button
 	corner.Name = randomstring()
+
+    local toggled = false
+
+    button.MouseButton1Click:Connect(function()
+        toggled = not toggled
+
+        if toggled then
+            toggle_frame.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        else
+            toggle_frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+        end
+    end)
 
 	if type(callback) == "function" then
 		button.MouseButton1Click:Connect(callback)
