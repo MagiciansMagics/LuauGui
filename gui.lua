@@ -65,8 +65,40 @@ create_button_item(parent, txt, txt_color, bg_color, bgt, pos, size, callback)
 	return button
 end
 
+function
+create_toggle_button_item(parent, txt, txt_color, bg_color, bgt, pos, size, callback)
+	local button = Instance.new("TextButton")
+	button.Parent = parent
+	button.Name = randomstring()
+	button.Text = txt or "No text"
+	button.BackgroundColor3 = bg_color or Color3.fromRGB(255, 255, 255)
+    button.TextColor3 = txt_color or Color3.fromRGB(255, 255, 255)
+	button.BackgroundTransparency = bgt or 0
+	button.Position = pos or UDim2.new()
+	button.Size = size or UDim2.new()
+
+    local toggle_frame = Instance.new("Frame")
+    toggle_frame.Parent = button
+    toggle_frame.Name = randomstring()
+    toggle_frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    toggle_frame.Position = UDim2.new(0, 2, 0, button.Size.Y - 1)
+    -- Minus 4 for padding on the sides
+    toggle_frame.Size = UDim2.new(0, button.Size.X - 4, 0, 1)
+
+	local corner = Instance.new("UICorner")
+	corner.Parent = button
+    corner.Name = randomstring()
+
+	if type(callback) == "function" then
+		button.MouseButton1Click:Connect(callback)
+	end
+
+	return button
+end
+
 return {
     create_gui_item = create_gui_item,
     create_frame_item = create_frame_item,
-    create_button_item = create_button_item
+    create_button_item = create_button_item,
+	create_toggle_button_item = create_toggle_button_item
 }
