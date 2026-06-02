@@ -80,9 +80,9 @@ function create_toggle_button_item(parent, txt, txt_color, bg_color, bgt, pos, s
 	toggle_frame.Parent = button
 	toggle_frame.Name = randomstring()
 	toggle_frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-	toggle_frame.Position = UDim2.new(0, 2, 0, button.Size.Y.Offset - 1)
+	toggle_frame.Position = UDim2.new(0, 4, 0, button.Size.Y.Offset - 1)
 	-- Minus 4 for padding on the sides
-	toggle_frame.Size = UDim2.new(0, button.Size.X.Offset - 4, 0, 1)
+	toggle_frame.Size = UDim2.new(0, button.Size.X.Offset - 6, 0, 1)
 
 	local corner = Instance.new("UICorner")
 	corner.Parent = button
